@@ -1,0 +1,15 @@
+man ssh
+-------
+
+SSH(1)                        BSD General Commands Manual                        SSH(1)
+
+NAME
+     ssh - OpenSSH remote login client
+
+SYNOPSIS
+     ssh [ ... ]
+
+DESCRIPTION
+     ssh (SSH client) is a program for logging into a remote machine and for executing commands
+     on a remote mochine.  It is intended to provide secure encrypted communications between two
+     untrusted hosts over an insecure network.

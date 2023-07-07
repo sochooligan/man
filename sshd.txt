@@ -1,0 +1,18 @@
+man sshd
+-------
+
+SSH(8)                        BSD System Manager's Manual                        SSH(8)
+
+NAME
+     sshd - OpenSSH daemon
+
+SYNOPSIS
+     sshd [ ... ]
+
+DESCRIPTION
+     sshd (OpenSSH Daemon) is the daemon program for ssh(1).  It provide secure encrypted commu-
+     nications between two untrusted hosts over an insecure network.
+
+     sshd listens for connections from clients.  It is normally started at boot from /etc/rc.  It
+     forks a new daemon for each incoming connection.  The forked daemons handle key exchange,
+     encryption, authentication, command execution, and data exchange.
