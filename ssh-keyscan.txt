@@ -1,0 +1,45 @@
+man ssh-keyscan
+-------
+
+SSH-KEYSCAN(1)                        BSD General Commands Manual                        SSH-KEYSCAN(1)
+
+SYNOPSIS
+     ssh-keyscan [ ... ]
+DESCRIPTION
+     ssh-keyscan is a utility for gatheting the public SSH host keys of a number of hosts.  It
+                                             SSH主机的 公用密钥
+     was designed to aid in building and verifying ssh_known_hosts files, the format of which is
+                            帮助构建  和  验证 ssh_known_hosts 文件
+     documented in sshd(8).  ssh-keyscan provides a minimal interface suitable for use by shell
+     and perl scripts
+
+     ssh-keyscan uses non-blocking socket I/O to contact as many hosts as possible in parallel,
+                      非阻塞 套接字I/O
+     so it is very efficient.  The keys from a domain of 1,000 hosts can be collected in tens of
+     	      	   	        密钥
+     seconds, even when some of those hosts are down or do not run sshd(8).  For scanning, one
+                                                                             对于扫描,
+     does not need login access to the machines that are being scanned, nor does the scanning process
+             不需要登录 访问         正在扫描的机器,   扫描过程也不涉及任何加密
+     involve any encryption.
+
+     ...
+
+     If an ssh_known_hosts file is constructed using ssh-keyscan without verifying the keys,
+                                                                 不验证 密钥
+     users will be vulnerable to man in the middle attacks.  On the other hand, if the security
+                易受攻击的         处于中间的人       的攻击
+     model allows such a risk, ssh-keyscan can help in the detection of tampered keyfiles or man
+     如果安全模型 允许这种风险                          帮助 检测        (被)故意破坏的  密钥文件
+     in the middle attacks which have begun after the ssh_known_hosts file was created.
+              中间人 攻击
+
+FILES
+     /etc/ssh/ssh_known_hosts
+
+EXAMPLES
+     Print host keys for machine hostname:
+	   $ ssh-keyscan github.com
+
+     Print the RSA host key for machine hostname:
+	   $ ssh-keyscan -t rsa github.com
