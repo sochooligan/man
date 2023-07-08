@@ -21,6 +21,8 @@ DESCRIPTION
 
      -d      Removes identities from the agent.
 
+     -L      Lists public key parameters of all identities currently represented by the agent.
+                   公钥 参数                                代理代表的
      -l      Lists fingerprints of all identities currently represented by the agent.
 
           $ ssh-add -d   ;; removes default identities from the agent
