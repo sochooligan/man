@@ -1,0 +1,29 @@
+man ssh-add
+-------
+
+SSH-ADD(1)                        BSD General Commands Manual                        SSH-ADD(1)
+
+NAME
+     ssh-add - adds private key identities to the OpenSSH authentication agent
+
+SYNOPSIS
+     ssh-add [ ... ]
+
+DESCRIPTION
+     ssh-add adds private key identities to the authentication agent, ssh-agent(1).  When run
+     withou argument, it adds the file ~/.ssh/id_rsa, ~/.ssh/id_dsa, ~/.ssh/id_ecdsa,
+     ~/.ssh/id_ecdsa_sk, ~/.ssh/id_ed25519, and ~/.ssh/id_ed25519_sk.  After loading a private
+     key, ssh-add will try to load corresponding certificate information from the filename ob-
+     tained by appending -cert.pub to the name of the private key file.  Alternative file names
+     can be given on the command line.
+
+     -D      Deletes all identities from the agent.
+
+     -d      Removes identities from the agent.
+
+     -l      Lists fingerprints of all identities currently represented by the agent.
+
+          $ ssh-add -d   ;; removes default identities from the agent
+          $ ssh-add -D   ;; removes all identities
+          $ ssh-add      ;; adds private key identities to the authentication agent
+          $ ssh-add -l   ;; list fingerprints of all identities
